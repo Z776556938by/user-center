@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### My ###
+mvnw
+mvnw.cmd
+src/main/resources/generator
