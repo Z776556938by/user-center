@@ -1,0 +1,28 @@
+#management.endpoint.health.show-details=always
+#management.endpoints.web.exposure.include=*
+#
+#info.app-name=spring-boot-demo
+#info.author=lucas
+#info.email=xx@email
+
+spring:
+  datasource:
+    url: jdbc:mysql://rm-bp19y5ow28vo3bh2exo.mysql.rds.aliyuncs.com:3306/user_center
+    hikari:
+      username: zyb123456789
+      password: zyb123456789!
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+#        namespace: 命名空间 使用的是id 需要在nacos控制中 先新建
+        namespace: 7cf55ebe-8005-4c48-a506-36b219d8ae62
+        #        test
+        cluster-name: ZJ
+#        metadate: 设置元数据 实例级别 （键值对形式）
+#          XXX: xx
+  application:
+    name: user-center
+rocketmq:
+  name-server: 127.0.0.1:9876
