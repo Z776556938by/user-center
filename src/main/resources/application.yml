@@ -22,6 +22,21 @@ spring:
         cluster-name: ZJ
 #        metadate: 设置元数据 实例级别 （键值对形式）
 #          XXX: xx
+    stream:
+#      rocketmq:
+#        binder:
+#          name-server: 127.0.0.1:9876
+#        bindings:
+#          input:
+#            destination:
+#              # Rocketmq 必须设置
+#            group: binder-group
+      bindings:
+        send-in-0:
+          destination: stream-test-topic
+          group: binder-group
+    function:
+      definition: send
   application:
     name: user-center
 rocketmq:
