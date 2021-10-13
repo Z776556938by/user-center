@@ -1,5 +1,3 @@
-package com.wistron.springboot.springbootlearn.rockermq;
-
 import com.wistron.springboot.springbootlearn.dao.bonusEventLog.BonusEventLogMapper;
 import com.wistron.springboot.springbootlearn.dao.user.UserMapper;
 import com.wistron.springboot.springbootlearn.domain.dto.message.UserAddBonusMsgDTO;

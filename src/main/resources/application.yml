@@ -26,17 +26,10 @@ spring:
 #      rocketmq:
 #        binder:
 #          name-server: 127.0.0.1:9876
-#        bindings:
-#          input:
-#            destination:
-#              # Rocketmq 必须设置
-#            group: binder-group
       bindings:
-        send-in-0:
-          destination: stream-test-topic
+        addBonus-in-0:
+          destination: add-bonus
           group: binder-group
-    function:
-      definition: send
   application:
     name: user-center
 rocketmq:

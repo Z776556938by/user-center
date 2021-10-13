@@ -1,6 +1,11 @@
 package com.wistron.springboot.springbootlearn.rockermq;
 
+import com.alibaba.fastjson.JSON;
+import com.wistron.springboot.springbootlearn.domain.dto.message.UserAddBonusMsgDTO;
+import com.wistron.springboot.springbootlearn.service.user.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +18,17 @@ import java.util.function.Consumer;
  */
 @Service
 @Slf4j
-public class TestStreamConsumer {
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class AddBonusStreamConsumer {
+    private final UserService userService;
 
     @Bean
-    Consumer<String> send() {
+    Consumer<String> addBonus() {
         return str -> {
-            log.info("收到消息, messageBody = {}", str);
-            System.out.println("我是消费者，我收到了消息：" + str);
+            userService.addBonus(JSON.parseObject(str, UserAddBonusMsgDTO.class));
         };
     }
+
 
 //    @Bean
 //        //这里接收rabbitmq的条件是参数为Consumer 并且 方法名和supplier方法名相同
